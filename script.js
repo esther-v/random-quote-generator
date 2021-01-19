@@ -6588,12 +6588,20 @@ const colors = [
   '#73A857'
 ];
 
+let body = document.querySelector("body");
+let bouton = document.querySelector("#new-quote");
+let citation = document.querySelector("#text");
+let auteur = document.querySelector("#author");
+
 function getRandomColor() {
   const randomColor = colors[
-    Math.floor(Math.random() * colors.length)
+    Math.floor(Math.random() * colors.length) //math.floor permet d'arrondir un chiffre à virgule 
   ];
 
   // Your code below
+body.style.backgroundColor = randomColor;
+bouton.style.backgroundColor = randomColor;
+body.style.color = randomColor;
 
   // Your code above
 }
@@ -6604,10 +6612,15 @@ function getRandomQuote() {
   ];
 
   // Your code below
-
+citation.textContent = randomQuote.text;
+auteur.textContent = randomQuote.author;
   // Your code above
 }
 
 // Your code below
-
+bouton.addEventListener('click', () => {
+  getRandomColor()
+  getRandomQuote()
+});
 // Your code above
+getRandomQuote(); //on appelle la fonction une premiere fois
